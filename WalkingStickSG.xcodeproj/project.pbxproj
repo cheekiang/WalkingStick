@@ -16,9 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5401CA591D40C412003A8BD6 /* location_tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = location_tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5401CA591D40C412003A8BD6 /* WalkingStickSG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalkingStickSG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5401CA5C1D40C412003A8BD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5401CA5E1D40C412003A8BD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5401CA5E1D40C412003A8BD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ViewController.swift; sourceTree = "<group>"; };
 		5401CA611D40C412003A8BD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5401CA631D40C412003A8BD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5401CA661D40C412003A8BD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		5401CA5A1D40C412003A8BD6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5401CA591D40C412003A8BD6 /* location_tracker.app */,
+				5401CA591D40C412003A8BD6 /* WalkingStickSG.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5401CA581D40C412003A8BD6 /* location_tracker */ = {
+		5401CA581D40C412003A8BD6 /* WalkingStickSG */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5401CA6B1D40C412003A8BD6 /* Build configuration list for PBXNativeTarget "location_tracker" */;
+			buildConfigurationList = 5401CA6B1D40C412003A8BD6 /* Build configuration list for PBXNativeTarget "WalkingStickSG" */;
 			buildPhases = (
 				5401CA551D40C412003A8BD6 /* Sources */,
 				5401CA561D40C412003A8BD6 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = location_tracker;
+			name = WalkingStickSG;
 			productName = location_tracker;
-			productReference = 5401CA591D40C412003A8BD6 /* location_tracker.app */;
+			productReference = 5401CA591D40C412003A8BD6 /* WalkingStickSG.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +99,7 @@
 				TargetAttributes = {
 					5401CA581D40C412003A8BD6 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = J8475R7TQB;
+						DevelopmentTeam = CJ73368C58;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 0;
@@ -108,7 +108,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5401CA541D40C412003A8BD6 /* Build configuration list for PBXProject "location_tracker" */;
+			buildConfigurationList = 5401CA541D40C412003A8BD6 /* Build configuration list for PBXProject "WalkingStickSG" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -121,7 +121,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5401CA581D40C412003A8BD6 /* location_tracker */,
+				5401CA581D40C412003A8BD6 /* WalkingStickSG */,
 			);
 		};
 /* End PBXProject section */
@@ -257,11 +257,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = location_tracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "JamesTan.location-tracker";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WalkingStickSG;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -270,11 +271,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = location_tracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "JamesTan.location-tracker";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WalkingStickSG;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -282,7 +284,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5401CA541D40C412003A8BD6 /* Build configuration list for PBXProject "location_tracker" */ = {
+		5401CA541D40C412003A8BD6 /* Build configuration list for PBXProject "WalkingStickSG" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5401CA691D40C412003A8BD6 /* Debug */,
@@ -291,7 +293,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5401CA6B1D40C412003A8BD6 /* Build configuration list for PBXNativeTarget "location_tracker" */ = {
+		5401CA6B1D40C412003A8BD6 /* Build configuration list for PBXNativeTarget "WalkingStickSG" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5401CA6C1D40C412003A8BD6 /* Debug */,
