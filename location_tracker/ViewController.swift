@@ -9,9 +9,13 @@
 import UIKit
 import CoreLocation
 import MapKit
+import AudioToolbox
+
 var gpscoord : String = String()
 var lat: Double = 0.0
 var long: Double = 0.0
+var prevlat: Double = 0.0
+var prevlong: Double = 0.0
 
 class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
     //MARK: Properties
@@ -24,6 +28,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     var myLocations: [CLLocation] = []
     var stickid: String = ""
     var sticktime: String = ""
+    var fallflag: String = ""
     
     override func viewDidLoad() {
         
@@ -90,6 +95,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
                 print(long)
                 self.stickid = String(UTF8String: gpscoordarr[0])!
                 self.sticktime = String(UTF8String: gpscoordarr[3])!
+                self.fallflag = String(UTF8String: gpscoordarr[4])!
                 }
         }
         
@@ -108,11 +114,27 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
                           coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
         
         theMap.addAnnotation(stick)
-        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 5 * Int64(NSEC_PER_SEC))
-        dispatch_after(time, dispatch_get_main_queue()) {
-            //remove marker updates new location every 5 sec
+        
+        if prevlat != lat && prevlong != long {
             self.theMap.removeAnnotation(stick)
         }
+        
+        prevlat = lat
+        prevlong = long
+        
+        //fall notification
+        if fallflag == "1" {
+            let alertController = UIAlertController(title: "Warning!", message:
+                "Fall Detected! Click Phone Icon to call Stick User.", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+       
+            //sound
+            AudioServicesPlayAlertSound(1328)
+        }
+        
+        
         
         //override func didReceiveMemoryWarning() {
          //   super.didReceiveMemoryWarning()

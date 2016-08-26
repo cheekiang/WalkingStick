@@ -82,8 +82,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PXM-f5-yNV">
                                 <rect key="frame" x="245" y="472" width="120" height="120"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUH-Q4-Lhy" propertyAccessControl="none">
-                                        <rect key="frame" x="245" y="472" width="120" height="120"/>
+                                    <button opaque="NO" contentMode="left" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUH-Q4-Lhy" propertyAccessControl="none">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                         <state key="normal" image="Telephone"/>
                                         <variation key="heightClass=regular" ambiguous="YES">
