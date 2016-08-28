@@ -40,6 +40,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         manager.delegate = self
         
         //init location
+        print("init location")
         let initialLocation = CLLocation(latitude: lat, longitude: long)
         let regionRadius: CLLocationDistance = 1000
         func centerMapOnLocation(location: CLLocation) {
@@ -49,12 +50,13 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         }
         //Set accuracy
         manager.desiredAccuracy = kCLLocationAccuracyKilometer
-        //manager.requestAlwaysAuthorization()
+        manager.requestAlwaysAuthorization()
         
         //calls update function
         manager.startUpdatingLocation()
     
         //Setup Map View
+        print("init setup map view")
         theMap.delegate = self
         theMap.mapType = MKMapType.Standard
         //theMap.showsUserLocation = true
@@ -78,6 +80,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     func locationManager(manager:CLLocationManager, didUpdateLocations locations:[CLLocation]) {
       
         //poll stick location
+        print("Poll Stick Location")
         let url = NSURL(string: "http://188.166.241.24/retrieval.php")
         //var dataString:String = " "
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
