@@ -37,7 +37,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="spatial" mapType="standard" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAe-3y-0C6">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="spatial" ambiguous="YES" misplaced="YES" mapType="standard" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAe-3y-0C6">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="457"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="457" id="4FV-Vu-pnQ"/>
@@ -75,15 +75,6 @@
                                     <rect key="frame" x="252" y="543" width="120" height="120"/>
                                 </variation>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Govtech EMT 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nks-E1-KOl">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="129" y="448" width="101" height="21"/>
-                                </variation>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFC-tG-eiQ">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -97,6 +88,15 @@
                                     <segue destination="COw-lK-gpk" kind="push" id="Zgg-ew-mxA"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GovTech EMT 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nks-E1-KOl">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="131" y="451" width="101" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -110,8 +110,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="nks-E1-KOl"/>
                                 <exclude reference="fFC-tG-eiQ"/>
+                                <exclude reference="nks-E1-KOl"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Zkm-DD-3ZJ"/>
@@ -122,8 +122,8 @@
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="subviews">
-                                <include reference="nks-E1-KOl"/>
                                 <include reference="fFC-tG-eiQ"/>
+                                <include reference="nks-E1-KOl"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="ZWc-Fg-mB1"/>
@@ -223,28 +223,28 @@
                                     <rect key="frame" x="232" y="220" width="135" height="30"/>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRX-yZ-Q2k">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="1" green="0.065491841590000002" blue="0.0077785376509999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="126" y="298" width="65" height="30"/>
-                                </variation>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Settings" translatesAutoresizingMaskIntoConstraints="NO" id="ZIl-DS-3gU">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="heightClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="20" y="85" width="44" height="42"/>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6RK-NK-peo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GovTech EMT 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t28-kB-nBF">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="129" y="571" width="149" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6RK-NK-peo">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="SAVE">
+                                <state key="normal" image="Save">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="232" y="298" width="46" height="30"/>
+                                    <rect key="frame" x="82" y="284" width="244" height="77"/>
                                 </variation>
                                 <connections>
                                     <action selector="SAVE:" destination="COw-lK-gpk" eventType="touchUpInside" id="w5C-GB-Wxy"/>
@@ -261,8 +261,8 @@
                                 <exclude reference="Y7H-6s-C1P"/>
                                 <exclude reference="KjP-ny-eIF"/>
                                 <exclude reference="Hrv-KS-HU9"/>
-                                <exclude reference="oRX-yZ-Q2k"/>
                                 <exclude reference="ZIl-DS-3gU"/>
+                                <exclude reference="t28-kB-nBF"/>
                                 <exclude reference="6RK-NK-peo"/>
                             </mask>
                         </variation>
@@ -275,8 +275,8 @@
                                 <include reference="Y7H-6s-C1P"/>
                                 <include reference="KjP-ny-eIF"/>
                                 <include reference="Hrv-KS-HU9"/>
-                                <include reference="oRX-yZ-Q2k"/>
                                 <include reference="ZIl-DS-3gU"/>
+                                <include reference="t28-kB-nBF"/>
                                 <include reference="6RK-NK-peo"/>
                             </mask>
                         </variation>
@@ -313,6 +313,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Save" width="200" height="77"/>
         <image name="Settings" width="40" height="40"/>
         <image name="Telephone" width="120" height="120"/>
     </resources>

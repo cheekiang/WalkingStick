@@ -47,7 +47,7 @@ class SecondViewController: UIViewController {
     }
 
     @IBAction func SAVE(sender: UIButton) {
-        let httppoststring: String = "stickID=" + SWalkingStickID.text! + "&careGiverPhone=" + SCGMobile.text! + "&SUserMobile=" + SUserMobile.text!
+        let httppoststring: String = "stickID=" + SWalkingStickID.text! + "&careGiverPhone=" + SCGMobile.text! + "&elderPhone=" + SUserMobile.text!
         
         let url:NSURL = NSURL(string: "http://188.166.241.24/SaveHandphoneNo.php")!
         let session = NSURLSession.sharedSession()
@@ -73,6 +73,10 @@ class SecondViewController: UIViewController {
             }
         );
         
+        let alertControllerSave = UIAlertController(title: "Settings", message:
+            "Configurations Saved", preferredStyle: UIAlertControllerStyle.Alert)
+        alertControllerSave.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default,handler: nil))
+        self.presentViewController(alertControllerSave, animated: true, completion: nil)
         task.resume()
         //let passedUserMobile = SUserMobile.text
         //print(passedUserMobile)
