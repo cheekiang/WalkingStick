@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "Walking Stick ID:"; ObjectID = "Fba-TF-bBR"; */
+"Fba-TF-bBR.text" = "Walking Stick ID:";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "cdg-Eu-RN6"; */
+"cdg-Eu-RN6.text" = "Settings";
+
+/* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "fFC-tG-eiQ"; */
+"fFC-tG-eiQ.normalTitle" = "Settings";
+
+/* Class = "UILabel"; text = "User's Mobile Number"; ObjectID = "j4O-Co-QdO"; */
+"j4O-Co-QdO.text" = "User's Mobile Number";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "kuY-Fv-2Qq"; */
+"kuY-Fv-2Qq.text" = "Label";
+
+/* Class = "UILabel"; text = "GovTech EMT 2016"; ObjectID = "nks-E1-KOl"; */
+"nks-E1-KOl.text" = "GovTech EMT 2016";
+
+/* Class = "UILabel"; text = "GovTech EMT 2016"; ObjectID = "t28-kB-nBF"; */
+"t28-kB-nBF.text" = "GovTech EMT 2016";
+
+/* Class = "UILabel"; text = "Care Giver Mobile Number:"; ObjectID = "tfx-FW-5c9"; */
+"tfx-FW-5c9.text" = "Care Giver Mobile Number:";

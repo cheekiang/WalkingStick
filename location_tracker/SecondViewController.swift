@@ -13,19 +13,29 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var SWalkingStickID: UITextField!
     @IBOutlet weak var SCGMobile: UITextField!
     @IBOutlet weak var SUserMobile: UITextField!
+    @IBOutlet weak var SUserName: UITextField!
     @IBOutlet weak var SAVE: UIButton!
-    
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let sid = defaults.objectForKey("Stickid")
+        print("TRYING STORAGE")
+        print(sid)
+        SWalkingStickID.text = (sid as! String)
+        let CG = defaults.objectForKey("CareGiverPhone")
+        SCGMobile.text = (CG as! String)
+        let UM = defaults.objectForKey("Stickuserphone")
+        SUserMobile.text = (UM as! String)
+        let UName = defaults.objectForKey("Username")
+        SUserName.text = (UName as! String)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
@@ -46,9 +56,10 @@ class SecondViewController: UIViewController {
         //print(passedUserMobile)
     }
 
+    //save function
     @IBAction func SAVE(sender: UIButton) {
+        //Data Structure for http post
         let httppoststring: String = "stickID=" + SWalkingStickID.text! + "&careGiverPhone=" + SCGMobile.text! + "&elderPhone=" + SUserMobile.text!
-        
         let url:NSURL = NSURL(string: "http://188.166.241.24/SaveHandphoneNo.php")!
         let session = NSURLSession.sharedSession()
         
@@ -56,10 +67,9 @@ class SecondViewController: UIViewController {
         request.HTTPMethod = "POST"
         request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
         
-        
         let data = httppoststring.dataUsingEncoding(NSUTF8StringEncoding)
         
-        
+        //debug trap for error in uploading
         let task = session.uploadTaskWithRequest(request, fromData: data, completionHandler:
             {(data,response,error) in
                 
@@ -67,18 +77,30 @@ class SecondViewController: UIViewController {
                     print("error")
                     return
                 }
-                
                 let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
                 print(dataString)
             }
+        
+            
         );
         
+        //saving locally
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(SWalkingStickID.text, forKey: "Stickid")
+        defaults.setObject(SCGMobile.text, forKey: "CareGiverPhone")
+        defaults.setObject(SUserMobile.text, forKey: "Stickuserphone")
+        defaults.setObject(SUserName.text, forKey: "Username")
+        
+        //display pop up that parameters saved
         let alertControllerSave = UIAlertController(title: "Settings", message:
             "Configurations Saved", preferredStyle: UIAlertControllerStyle.Alert)
         alertControllerSave.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default,handler: nil))
         self.presentViewController(alertControllerSave, animated: true, completion: nil)
         task.resume()
-        //let passedUserMobile = SUserMobile.text
-        //print(passedUserMobile)
+        
+
     }
+    
+
+    
 }

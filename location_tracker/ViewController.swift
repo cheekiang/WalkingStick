@@ -11,6 +11,7 @@ import CoreLocation
 import MapKit
 import AudioToolbox
 
+//Global variables
 var gpscoord : String = String()
 var lat: Double = 0.0
 var long: Double = 0.0
@@ -19,7 +20,6 @@ var prevlong: Double = 0.0
 
 class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
     //MARK: Properties
-    
     @IBOutlet weak var theMap: MKMapView!
     @IBOutlet weak var Coord: UILabel!
     @IBOutlet weak var QuickDial: UIButton!
@@ -29,6 +29,12 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     var stickid: String = ""
     var sticktime: String = ""
     var fallflag: String = ""
+    var phoneNumber = ""
+    var stickuser = ""
+    var storedstickid = ""
+    var caregiver = ""
+    var username = ""
+    
     
     override func viewDidLoad() {
         
@@ -65,9 +71,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     }
     
     //Mark: Actions
-    
     @IBAction func QuickDial(sender: UIButton) {
-        let phoneNumber = "90889548"
+        //phoneNumber = phoneNumber
         if let phoneCallURL:NSURL = NSURL(string: "tel://\(phoneNumber)") {
             let application:UIApplication = UIApplication.sharedApplication()
             if (application.canOpenURL(phoneCallURL)) {
@@ -79,15 +84,23 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     // Map location
     func locationManager(manager:CLLocationManager, didUpdateLocations locations:[CLLocation]) {
       
+        //Load settings
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let sid = defaults.objectForKey("Stickid")
+        stickid = (sid as! String)
+        let User = defaults.objectForKey("Stickuserphone")
+        phoneNumber = (User as! String)
+        let UName = defaults.objectForKey("Username")
+        username = (UName as! String)
+        
         //poll stick location
         print("Poll Stick Location")
         let url = NSURL(string: "http://188.166.241.24/retrieval.php")
-        //var dataString:String = " "
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
             let dataString:String = NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
             dispatch_async(dispatch_get_main_queue()) {
+
                 // Update the UI on the main thread.
-                
                 self.Coord.text = dataString
                 gpscoord = self.Coord.text!
                 let newlineChars = NSCharacterSet.newlineCharacterSet()
@@ -101,6 +114,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
                 self.fallflag = String(UTF8String: gpscoordarr[4])!
                 }
         }
+    
         
         task.resume()
         
@@ -111,13 +125,14 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         theMap.setRegion(newRegion, animated: true)
         
         // show stick on map
-        let stick = Stick(title: "James Tan",
+        let stick = Stick(title: username,
                           locationName: "Stick ID:" + stickid,
                           discipline: sticktime,
                           coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
         
         theMap.addAnnotation(stick)
         
+        //if user moved, remove previous annotation
         if prevlat != lat && prevlong != long {
             self.theMap.removeAnnotation(stick)
         }
@@ -125,7 +140,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         prevlat = lat
         prevlong = long
         
-        //fall notification
+        //fall notification 0 is normal 1 denotes fall detected
         if fallflag == "1" {
             let alertController = UIAlertController(title: "Warning!", message:
                 "Fall Detected! Click Phone Icon to call Stick User.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -139,10 +154,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         
         
         
-        //override func didReceiveMemoryWarning() {
-         //   super.didReceiveMemoryWarning()
-            // Dispose of any resources that can be recreated.
-        //}
+        //declare geoclass within Mapkit
         let geocoder = CLGeocoder()
         let addrlocation = CLLocation(latitude: lat, longitude: long)
         
@@ -155,8 +167,6 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
             placeMark = placeArray?[0]
             
             // Address dictionary
-            //print(placeMark.addressDictionary)
-        
             // Location name
             if let locationName = placeMark.addressDictionary?["Name"] as? NSString
             {
@@ -179,6 +189,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         }
     
     }
+    
+        
 }
 
     
