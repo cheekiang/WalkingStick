@@ -20,18 +20,19 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let defaults = NSUserDefaults.standardUserDefaults()
-        let sid = defaults.objectForKey("Stickid")
-        print("TRYING STORAGE")
-        print(sid)
-        SWalkingStickID.text = (sid as! String)
-        let CG = defaults.objectForKey("CareGiverPhone")
-        SCGMobile.text = (CG as! String)
-        let UM = defaults.objectForKey("Stickuserphone")
-        SUserMobile.text = (UM as! String)
-        let UName = defaults.objectForKey("Username")
-        SUserName.text = (UName as! String)
+        if defaults.objectForKey("Stickid") != nil {
+            let sid = defaults.objectForKey("Stickid")
+            print("TRYING STORAGE")
+            print(sid)
+            SWalkingStickID.text = (sid as! String)
+            let CG = defaults.objectForKey("CareGiverPhone")
+            SCGMobile.text = (CG as! String)
+            let UM = defaults.objectForKey("Stickuserphone")
+            SUserMobile.text = (UM as! String)
+            let UName = defaults.objectForKey("Username")
+            SUserName.text = (UName as! String)
+        }
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

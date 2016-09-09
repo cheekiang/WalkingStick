@@ -49,11 +49,14 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         print("init location")
         let initialLocation = CLLocation(latitude: lat, longitude: long)
         let regionRadius: CLLocationDistance = 1000
+        
         func centerMapOnLocation(location: CLLocation) {
+            print("setting region")
            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                 regionRadius * 2.0, regionRadius * 2.0)
            theMap.setRegion(coordinateRegion, animated: true)
         }
+        
         //Set accuracy
         manager.desiredAccuracy = kCLLocationAccuracyKilometer
         manager.requestAlwaysAuthorization()
@@ -66,13 +69,14 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         theMap.delegate = self
         theMap.mapType = MKMapType.Standard
         //theMap.showsUserLocation = true
+        
+        print("center map")
         centerMapOnLocation(initialLocation)
        
     }
     
     //Mark: Actions
     @IBAction func QuickDial(sender: UIButton) {
-        //phoneNumber = phoneNumber
         if let phoneCallURL:NSURL = NSURL(string: "tel://\(phoneNumber)") {
             let application:UIApplication = UIApplication.sharedApplication()
             if (application.canOpenURL(phoneCallURL)) {
@@ -86,17 +90,22 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
       
         //Load settings
         let defaults = NSUserDefaults.standardUserDefaults()
-        let sid = defaults.objectForKey("Stickid")
-        stickid = (sid as! String)
-        let User = defaults.objectForKey("Stickuserphone")
-        phoneNumber = (User as! String)
-        let UName = defaults.objectForKey("Username")
-        username = (UName as! String)
+        if defaults.objectForKey("Stickid") != nil {
+            let sid = defaults.objectForKey("Stickid")
+            stickid = (sid as! String)
+            print(stickid)
+            let User = defaults.objectForKey("Stickuserphone")
+            phoneNumber = (User as! String)
+            print(phoneNumber)
+            let UName = defaults.objectForKey("Username")
+            username = (UName as! String)
+            print(username)
         
-        //poll stick location
-        print("Poll Stick Location")
-        let url = NSURL(string: "http://188.166.241.24/retrieval.php")
-         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+            //poll stick location
+            print("Poll Stick Location")
+            let url = NSURL(string: "http://188.166.241.24/retrieval.php")
+            print(url)
+            let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
             let dataString:String = NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
             dispatch_async(dispatch_get_main_queue()) {
 
@@ -113,11 +122,11 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
                 self.sticktime = String(UTF8String: gpscoordarr[3])!
                 self.fallflag = String(UTF8String: gpscoordarr[4])!
                 }
-        }
-    
+            }
+        
         
         task.resume()
-        
+        }
         let spanX = 0.007
         let spanY = 0.007
         let newRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: long), span: MKCoordinateSpanMake(spanX, spanY))
@@ -157,7 +166,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         //declare geoclass within Mapkit
         let geocoder = CLGeocoder()
         let addrlocation = CLLocation(latitude: lat, longitude: long)
-        
+        print("printing address")
         geocoder.reverseGeocodeLocation(addrlocation) {
             
             (placemarks, error) -> Void in
